@@ -4,15 +4,15 @@
   "version": "0.1.0",
   "workspaces": [
     "frontend",
-    "apps/*",
+    "services/*",
     "packages/*"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "dev": "npm run dev --workspace frontend",
-    "start:catalog": "tsx apps/catalog-api/src/index.ts",
-    "start:orders": "tsx apps/orders-api/src/index.ts",
-    "start:worker": "tsx apps/worker/src/index.ts",
+    "start:catalog": "tsx services/catalog-api/src/index.ts",
+    "start:orders": "tsx services/orders-api/src/index.ts",
+    "start:worker": "tsx services/worker/src/index.ts",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test:unit",
     "test:unit": "npm run test:unit --workspaces --if-present",
@@ -28,6 +28,8 @@
     "@playwright/test": "^1.54.1",
     "@prisma/client": "^6.8.2",
     "@types/node": "^22.15.21",
+    "@types/supertest": "^6.0.3",
+    "supertest": "^7.1.1",
     "prisma": "^6.8.2",
     "tsx": "^4.19.4",
     "typescript": "^5.8.3",

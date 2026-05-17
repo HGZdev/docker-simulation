@@ -39,7 +39,7 @@ services:
   catalog-api:
     build:
       context: .
-      dockerfile: apps/catalog-api/Dockerfile
+      dockerfile: services/catalog-api/Dockerfile
     environment:
       CATALOG_API_PORT: 3001
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/store?schema=public
@@ -53,7 +53,7 @@ services:
   orders-api:
     build:
       context: .
-      dockerfile: apps/orders-api/Dockerfile
+      dockerfile: services/orders-api/Dockerfile
     environment:
       ORDERS_API_PORT: 3002
       SWAGGER_SERVER_URL: http://localhost:3002
@@ -68,7 +68,7 @@ services:
   worker:
     build:
       context: .
-      dockerfile: apps/worker/Dockerfile
+      dockerfile: services/worker/Dockerfile
     environment:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/store?schema=public
     depends_on:
