@@ -1,0 +1,37 @@
+{
+  "name": "docker-simulation",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "frontend",
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspace frontend",
+    "start:catalog": "tsx apps/catalog-api/src/index.ts",
+    "start:orders": "tsx apps/orders-api/src/index.ts",
+    "start:worker": "tsx apps/worker/src/index.ts",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test:unit",
+    "test:unit": "npm run test:unit --workspaces --if-present",
+    "test:integration": "vitest run --config vitest.integration.config.ts",
+    "test:e2e": "playwright test",
+    "test:ct": "playwright test -c playwright-ct.config.ts",
+    "test:visual": "playwright test -c playwright-visual.config.ts",
+    "test:visual:update": "playwright test -c playwright-visual.config.ts --update-snapshots",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.54.1",
+    "@playwright/test": "^1.54.1",
+    "@prisma/client": "^6.8.2",
+    "@types/node": "^22.15.21",
+    "prisma": "^6.8.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4",
+    "zod": "^3.24.4"
+  }
+}
